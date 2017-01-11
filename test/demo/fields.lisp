@@ -1,7 +1,7 @@
 (in-package :forms.test)
 
 (forms:defform fields-form (:action "/fields-post")
-  ((name :string :value "")
+  ((name :string :value "1")
    (ready :boolean :value t)
    (sex :choice :choices (list "Male" "Female") :value "Male")
    (submit :submit :label "Create")))
