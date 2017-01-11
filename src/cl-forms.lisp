@@ -197,6 +197,7 @@
 	    (field-name field)
 	    (field-value field))))
 
+;; This function does not honor same syntax as exisiting fields; not used at all for now
 (defun add-field (form field)
   (setf (form-fields form)
 	(append (form-fields form) field)))
@@ -258,7 +259,7 @@
 	(loop for field in (form-fields form)
 	   appending
 	     (multiple-value-bind (valid-p errors)
-		    (validate-form-field (cdr field))
+                 (validate-form-field (cdr field))
 	       (when (not valid-p)
 		 (list (cons (cdr field) errors))))))
   (values (null (form-errors form))
